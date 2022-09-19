@@ -54,14 +54,16 @@ public class Main {
         //
         //в формате: «Сумма трат за месяц составила … рублей».
         //
+
+
         java.util.Random random = new java.util.Random();
         int[] summ = new int[30];
         int sum = 0;
         for (int i = 0; i < summ.length; i++) {
-            summ[i] = random.nextInt(100_000) + 100_000;
-            sum += summ[i];
-            System.out.println("За " + i + " день месяца общая сумма затрат составила: " + sum + " рублей.");
-        }
+        summ[i] = random.nextInt(100_000) + 100_000;
+        sum += summ[i];
+         }
+        System.out.println("Сумма трат за месяц составила: " + sum + " рублей.");
 
         //Задача 2
         //
@@ -71,18 +73,17 @@ public class Main {
         //
         //в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
 
-
-            int MinSum = -1;
-            int Maxsum = -1;
-            for (int i = 0; i < summ.length; i++) {
-                if (sum > Maxsum) {
-                    Maxsum = sum;
-                }
-                if (summ[0] > MinSum) {
-                    MinSum = summ[0];
-                }
+        int min = Integer.MIN_VALUE;
+        int max = Integer.MAX_VALUE;
+        for (int i = 0; i < summ.length; i++) {
+            if (sum < max) {
+                max = sum;
             }
-                System.out.println("Минимальная сумма трат за день составила " + MinSum + " рублей, а максимальная сумма трат за день составила " + Maxsum + " рублей.");
+            if (sum > min) {
+                min = summ[i];
+            }
+        }
+        System.out.println("Минимальная сумма трат за день составила " + min + " рублей, а максимальная сумма трат за день составила " + max + " рублей.");
 
         //Задание 3
         //
@@ -91,7 +92,7 @@ public class Main {
         //Нужно написать программу, которая посчитает среднее значение трат за месяц (то есть сумму всех трат за месяц поделить на количество дней), и вывести в консоль результат в формате: «Средняя сумма трат за месяц составила … рублей».
 
         double average = 0;
-        average = sum/30;
+        average = sum / 30;
         System.out.println("Средняя сумма трат за месяц составила " + average);
 
         //Задание 4 В нашей бухгалтерской книге появился баг. Что-то пошло нет так, и Ф. И. О. сотрудников начали отображаться в обратную сторону. Т. е. вместо «Иванов Иван Иванович» мы имеем «чивонавИ навИ вонавИ».
@@ -104,26 +105,16 @@ public class Main {
         //
         //В результате в консоль должно быть выведено "Ivanov Ivan".
 
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         char name = 0;
-        for (int i = reverseFullName.length -1 ; i >= 0;i--) {
+        for (int i = reverseFullName.length - 1; i >= 0; i--) {
             if (i >= 0) {
                 System.out.print(reverseFullName[i]);
 
 
-           }
+            }
         }
 
 
-
-
-
-
-
-
-
-
-
-
     }
-}
+         }
